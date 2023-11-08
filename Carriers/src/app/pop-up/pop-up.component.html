@@ -1,0 +1,35 @@
+<form class="formgrid" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <div class="grid">
+        <div class="col">
+            <label for="firstname">Firstname</label>
+            <input id="firstname" type="text"
+                class="text-base text-color  p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full" formControlName="firstname">
+                <div class="text-red-400 text-sm" *ngIf="firstName && firstName.invalid && firstName.touched">Please enter your first name</div>
+        </div>
+        <div class="col">
+            <label for="lastname">Lastname</label>
+            <input id="lastname" type="text"
+                class="text-base text-color  p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary w-full" formControlName="lastname">
+                <div class="text-red-400 text-sm" *ngIf="lastName && lastName.invalid && lastName.touched">Please enter your last name</div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col-12 text-center">
+            <label for="vechileNo">Vechile Number</label>
+            <input id="vechileNo" type="numbers" class="text-base text-color p-2 border-1 border-solid border-round appearance-none outline-none focus:border-primary w-full" formControlName="vechileno">
+            <div class="text-red-400 text-sm" *ngIf="vechileNo && vechileNo.invalid && vechileNo.touched">Please enter valid Vechile number</div>
+        </div>
+    </div>
+    <div class="grid">
+       <div class="col-12 text-center">
+        <label for="validation" class="mr-2">Validation</label>
+         <select id="validation" aria-placeholder="Select a Validation" class="text-base border-round p-2 outline-none focus:border-primary w-6" formControlName="validation">
+            <option *ngFor="let option of ValidationOptions" class="text-base m-2 border-1" [value]="option">{{option}}</option>
+         </select>
+         <div *ngIf="Validation && Validation.touched && Validation.invalid" class="text-red-400 text-sm">Please select any one of the options</div>
+       </div>
+       <div class="col-12 text-center">
+          <button [disabled]="reactiveForm.invalid" class="text-base border-1 border-solid border-round p-2 outline-none focus:border-green-200 w-6 bg-green-200" type="submit">Submit</button>
+       </div>
+    </div>
+</form>

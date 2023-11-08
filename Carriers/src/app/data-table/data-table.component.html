@@ -1,0 +1,24 @@
+<div class="text-center text-3xl font-semibold text-orange-700">CARRIER DATA</div>
+<div class="ml-2 mr-2">
+    <table class=" mt-4 border w-full">
+        <thead class="bg-green-400">
+            <th class="text-center text-lg text-color py-3">First Name</th>
+            <th class="text-center text-lg text-color py-3">Last Name</th>
+            <th class="text-center text-lg text-color py-3">Vechile-Number</th>
+            <th class="text-center text-lg text-color py-3">Validations</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userData" class="surface-400">
+                <td class="text-center text-base pt-2 pb-2">{{user.firstname}}</td>
+                <td class="text-center text-base pt-2 pb-2">{{user.lastname}}</td>
+                <td class="text-center text-base pt-2 pb-2">{{user.vechileno}}</td>
+                <td class="flex justify-content-center pt-2 pb-2" *ngIf="user.validation==='true'">
+                    <div><span class="checked text-center">&#10004;</span></div>
+                </td>
+                <td class="flex justify-content-center pt-2 pb-2" *ngIf="user.validation==='false'">
+                    <div><span class="unchecked text-center">&#10060;</span></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
